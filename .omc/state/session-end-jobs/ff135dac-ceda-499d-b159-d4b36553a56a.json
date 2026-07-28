@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "jobId": "647a0d3c-809d-4902-a222-c5ca3f9ab5f8",
+  "sessionId": "ff135dac-ceda-499d-b159-d4b36553a56a",
+  "scopeKey": "8ac4f7664343a55cad0e9aea5071cfb068fafde5bfaf85c1c19efbc15fa66463",
+  "revision": 4,
+  "createdAt": "2026-07-28T14:18:53.834Z",
+  "updatedAt": "2026-07-28T14:18:53.954Z",
+  "producerGraceExpiresAt": "2026-07-28T14:19:23.834Z",
+  "bestEffortDeadlineAt": "2026-07-28T14:20:14.834Z",
+  "producers": {
+    "core": {
+      "state": "sealed",
+      "intentKey": "dd7634873f5f3598e9a3da6f780225f87a9f7bfd3c495ee9e3871d5b6002b0d5",
+      "payloadDigest": "dd7634873f5f3598e9a3da6f780225f87a9f7bfd3c495ee9e3871d5b6002b0d5",
+      "sealedAt": "2026-07-28T14:18:53.858Z",
+      "sealedBy": "foreground"
+    },
+    "wiki": {
+      "state": "absent"
+    }
+  },
+  "actions": {
+    "foreground-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 0,
+      "idempotencyKey": "808ee89b56f905a20509fa6e64a21efb52c8331acc0d64bbe544199a2a3200a0",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {},
+        "foregroundResult": {
+          "removedTransientFiles": 2,
+          "completedAt": "2026-07-28T14:18:53.858Z"
+        }
+      },
+      "budgetMs": 9000,
+      "completedAt": "2026-07-28T14:18:53.858Z",
+      "lastOutcomeCode": "completed"
+    },
+    "wiki-capture": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "d9f337c75c73ba8bc93e91066009f1902fd43d0c905849b65592c2b205628752",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "team-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "5f0aa883a45fb700e6cf875b1512963cbec275b740b97720f12880bb012c32b3",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "python-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "5a49995a91960bc1b725cfbfe573afb8aa3a88ecafb31e9d8ed9050b0cc107ba",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "reply-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "b3adbd60ec40d22950dc0779cd36a975bf33a4f91b1713525bddd0e9fe5f94ca",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000
+    },
+    "callback": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "897194c8667e320a5be7035b2444ed379b7056da12ee7cdea3d7dd94d74f6bde",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    },
+    "notification": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "134bbe45be3b604b21d428232387aa58de5146934f91711c55914262b031a7ab",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    },
+    "openclaw": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "pending",
+      "attempts": 0,
+      "idempotencyKey": "1a3bf3add3400149fe45d29b3baa6f7431cc8ac46fd426cb4f88a1437bb52470",
+      "payload": {
+        "transcriptPath": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+        "cwd": "/private/tmp/bellman-rust-base",
+        "reason": "other",
+        "input": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "transcript_path": "/Users/ph/.claude/projects/-private-tmp-bellman-rust-base/ff135dac-ceda-499d-b159-d4b36553a56a.jsonl",
+          "cwd": "/private/tmp/bellman-rust-base",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "ff135dac-ceda-499d-b159-d4b36553a56a",
+          "ended_at": "2026-07-28T14:18:53.832Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000
+    }
+  },
+  "owner": null,
+  "phase": "recoverable-failure"
+}

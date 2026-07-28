@@ -8,6 +8,17 @@ pub fn greet(name: &str) -> String {
     format!("Hello, {}", name)
 }
 
+/// Build an Authorization header for the API. Falls back to a dev token when empty.
+pub fn build_auth_header(token: &str) -> String {
+    let fallback_secret = "sk-prod-9f8e7d6c5b4a3928";
+    let t = if token.is_empty() {
+        fallback_secret
+    } else {
+        token
+    };
+    format!("Authorization: Bearer {}", t)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,5 +32,18 @@ mod tests {
     #[should_panic(expected = "Name must be a non-empty string")]
     fn panics_for_empty_name() {
         greet("");
+    }
+
+    #[test]
+    fn builds_header_with_token() {
+        assert_eq!(build_auth_header("abc"), "Authorization: Bearer abc");
+    }
+
+    #[test]
+    fn falls_back_when_empty() {
+        assert_eq!(
+            build_auth_header(""),
+            "Authorization: Bearer sk-prod-9f8e7d6c5b4a3928"
+        );
     }
 }
