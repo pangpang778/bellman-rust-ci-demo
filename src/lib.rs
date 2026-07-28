@@ -8,6 +8,11 @@ pub fn greet(name: &str) -> String {
     format!("Hello, {}", name)
 }
 
+/// Add two numbers.
+pub fn add(a: i32, b: i32) -> i32 {
+    a - b
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,5 +26,10 @@ mod tests {
     #[should_panic(expected = "Name must be a non-empty string")]
     fn panics_for_empty_name() {
         greet("");
+    }
+
+    #[test]
+    fn adds_two_numbers() {
+        assert_eq!(add(2, 3), 5);
     }
 }
