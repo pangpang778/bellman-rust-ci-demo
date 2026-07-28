@@ -1,0 +1,9 @@
+[package]
+name = "bellman-rust-ci-demo"
+version = "0.1.0"
+edition = "2021"
+description = "Rust project replicating Bellman-style CI gates"
+license = "MIT"
+
+[lib]
+path = "src/lib.rs"
