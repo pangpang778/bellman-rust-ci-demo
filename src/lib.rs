@@ -8,6 +8,11 @@ pub fn greet(name: &str) -> String {
     format!("Hello, {}", name)
 }
 
+/// Check if someone is an adult.
+pub fn is_adult(age: u32) -> bool {
+    age >= 18
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,5 +26,10 @@ mod tests {
     #[should_panic(expected = "Name must be a non-empty string")]
     fn panics_for_empty_name() {
         greet("");
+    }
+
+    #[test]
+    fn detects_adult() {
+        assert!(is_adult(20));
     }
 }
