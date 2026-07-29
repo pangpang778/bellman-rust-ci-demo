@@ -8,6 +8,14 @@ pub fn greet(name: &str) -> String {
     format!("Hello, {}", name)
 }
 
+/// Shout the name in uppercase.
+pub fn shout(name: &str) -> String {
+    if name.is_empty() {
+        panic!("Name must be a non-empty string");
+    }
+    format!("{}!!!", name.to_uppercase())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,5 +29,10 @@ mod tests {
     #[should_panic(expected = "Name must be a non-empty string")]
     fn panics_for_empty_name() {
         greet("");
+    }
+
+    #[test]
+    fn shouts_a_name() {
+        assert_eq!(shout("hi"), "HI!!!");
     }
 }
