@@ -1,5 +1,7 @@
 //! Bellman-style CI demo library.
 
+pub mod query_builder;
+
 /// Greet the caller safely.
 pub fn greet(name: &str) -> String {
     if name.is_empty() {
