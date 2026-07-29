@@ -1,0 +1,88 @@
+name: CI Review Bot
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to auto-review'
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  auto-review:
+    name: Auto Review (github-actions[bot])
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ inputs.pr_number }}/head
+          persist-credentials: false
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Validate, scan, and post review
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: |
+          set +e
+          cargo fmt --all --check >/tmp/fmt.log 2>&1; FMT=$?
+          cargo clippy --all-targets -- -D warnings >/tmp/clippy.log 2>&1; CLIPPY=$?
+          cargo test --all >/tmp/test.log 2>&1; TEST=$?
+          cargo build --all >/tmp/build.log 2>&1; BUILD=$?
+          set -e
+
+          fmt_status=$([ $FMT -eq 0 ] && echo "Pass" || echo "Fail")
+          clippy_status=$([ $CLIPPY -eq 0 ] && echo "Pass" || echo "Fail")
+          test_status=$([ $TEST -eq 0 ] && echo "Pass" || echo "Fail")
+          build_status=$([ $BUILD -eq 0 ] && echo "Pass" || echo "Fail")
+
+          secret_hits=$(grep -rEn '(static|const|let)[[:space:]]+[A-Za-z_]*(KEY|SECRET|PASSWORD|TOKEN|CREDENTIAL)[A-Za-z_]*[[:space:]]*[:=].*"[^"]+"' src/ 2>/dev/null || true)
+
+          verdict="APPROVE"
+          decision_note=""
+          if [ -n "$secret_hits" ]; then
+            verdict="REQUEST_CHANGES"
+            decision_note="BLOCK (CRITICAL): hardcoded secret detected"
+          elif [ $TEST -ne 0 ]; then
+            verdict="REQUEST_CHANGES"
+            decision_note="HIGH: tests failing"
+          elif [ $CLIPPY -ne 0 ] || [ $FMT -ne 0 ] || [ $BUILD -ne 0 ]; then
+            verdict="REQUEST_CHANGES"
+            decision_note="validation failure"
+          fi
+
+          {
+            echo "## CI Review Bot - PR #${PR_NUMBER}"
+            echo ""
+            echo "**Reviewer**: github-actions[bot] (via GITHUB_TOKEN)"
+            echo "**Decision**: ${verdict}${decision_note:+ - ${decision_note}}"
+            echo ""
+            echo "### Validation"
+            echo "| Check | Result |"
+            echo "|---|---|"
+            echo "| cargo fmt --check | ${fmt_status} |"
+            echo "| cargo clippy -D warnings | ${clippy_status} |"
+            echo "| cargo test --all | ${test_status} |"
+            echo "| cargo build --all | ${build_status} |"
+            if [ -n "$secret_hits" ]; then
+              echo ""
+              echo "### Secret scan (CRITICAL)"
+              echo '```'
+              echo "$secret_hits"
+              echo '```'
+            fi
+            echo ""
+            echo "_Posted by ci-review-bot.yml as github-actions[bot]._"
+          } > /tmp/review-body.md
+
+          if [ "$verdict" = "APPROVE" ]; then
+            gh pr review "$PR_NUMBER" --approve --body-file /tmp/review-body.md
+          else
+            gh pr review "$PR_NUMBER" --request-changes --body-file /tmp/review-body.md
+          fi
