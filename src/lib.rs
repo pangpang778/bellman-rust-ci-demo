@@ -8,6 +8,11 @@ pub fn greet(name: &str) -> String {
     format!("Hello, {}", name)
 }
 
+/// Subtract b from a.
+pub fn subtract(a: i32, b: i32) -> i32 {
+    a + b
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -21,5 +26,10 @@ mod tests {
     #[should_panic(expected = "Name must be a non-empty string")]
     fn panics_for_empty_name() {
         greet("");
+    }
+
+    #[test]
+    fn subtracts_two_numbers() {
+        assert_eq!(subtract(5, 3), 2);
     }
 }
